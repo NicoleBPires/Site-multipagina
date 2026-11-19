@@ -1,0 +1,287 @@
+/* CONFIGURAÇÕES ORIGINAIS + AJUSTES DE LAYOUT */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.img {
+    width: 120px;
+    height: 120px;
+    border-radius: 30px;
+    padding: 0;
+    object-fit: cover;
+}
+
+body {
+    background-color: #F7F5EF;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* MENU LATERAL - COMPUTADOR */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 100vh;
+    z-index: 10;
+}
+
+#conteiner {
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+    background-color: #bbcead;
+    padding: 13px;
+    width: 150px;
+    height: 100vh;
+    border-radius: 0 18px 18px 0;
+    font-size: 20px;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.contens {
+    margin-left: 150px;
+    flex: 1;
+    min-width: 0;
+    width: calc(100% - 150px);
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 30px;
+    font-size: 25px;
+}
+
+.content {
+    display: none;
+    background-color: #F7F5EF;
+    padding: 0.5% 2.5% 0.5% 2%;
+    border-radius: 10px;
+    width: 100%;
+    min-width: 0;
+    height: fit-content;
+}
+
+.content.show {
+    display: block;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 13px 8px;
+    margin-bottom: 15px;
+    background-color: transparent;
+    color: #465744;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn.active {
+    background-color: #71836B;
+    border-radius: 30px;
+    color: aliceblue;
+}
+
+.btn:hover:not(.active) {
+    background-color: #71836B;
+    border-radius: 30px;
+    color: aliceblue;
+}
+
+.btn a {
+    text-decoration: none;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+}
+
+.btn.active a {
+    color: rgb(255, 255, 255);
+}
+
+.btn a i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+h1 {
+    color: rgb(3, 0, 0);
+}
+
+.title {
+    margin-bottom: 40px;
+    margin-top: 20px;
+    text-align: center;
+    align-items: center;
+    color: #21271f;
+}
+
+.butao {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* CARTÕES DA APRESENTAÇÃO */
+.bloco11 {
+    margin-top: 10%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    gap: 50px;
+    row-gap: 70px;
+    align-items: start;
+    font-size: 25px;
+    margin-left: 1.5%;
+    width: 98.5%;
+    min-width: 0;
+}
+
+.infos {
+    font-size: 25px;
+    min-width: 0;
+}
+
+.descricao {
+    align-items: baseline;
+    word-spacing: 2px;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.bloco25 {
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    cursor: pointer;
+    align-items: center;
+    margin-left: 0;
+}
+
+.bloco21,
+.bloco22,
+.bloco23,
+.bloco24,
+.bloco25 {
+    color: #1d221d;
+    background-color: #bbcead;
+    padding: 0.5% 1.5% 0.5% 1%;
+    border-radius: 10px;
+    width: 100%;
+    min-width: 0;
+    height: fit-content;
+    text-align: center;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+}
+
+/* TABLETS E CELULARES */
+@media (max-width: 760px) {
+    body {
+        display: block;
+    }
+
+    /* O menu deixa de ficar fixo na lateral e vai para o topo */
+    nav {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    #conteiner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 12px;
+        border-radius: 0 0 18px 18px;
+    }
+
+    .img {
+        width: 90px;
+        height: 90px;
+        flex-shrink: 0;
+    }
+
+    .butao {
+        width: 100%;
+        margin-top: 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .btn {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+    }
+
+    /* O conteúdo passa a usar a largura disponível do celular */
+    .contens {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+        padding: 25px 18px;
+    }
+
+    .content {
+        width: 100%;
+        padding: 0.5% 2%;
+    }
+
+    /* Os quatro cartões passam para uma coluna */
+    .bloco11 {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 25px;
+        row-gap: 25px;
+        margin-top: 10%;
+        margin-left: 0;
+        width: 100%;
+        overflow: visible;
+    }
+
+    .bloco21,
+    .bloco22,
+    .bloco23,
+    .bloco24,
+    .bloco25 {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* CELULARES ESTREITOS */
+@media (max-width: 380px) {
+    .contens {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    #conteiner {
+        padding: 10px;
+    }
+
+    .btn {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
